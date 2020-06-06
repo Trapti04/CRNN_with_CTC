@@ -14,6 +14,8 @@ We applied a modified CRNN in this task. CRNN is a conventional scene text recog
 
 In scanned receipts each text usually contains several words. We add the blank space between words to the alphabet for LSTM prediction and thus improve the network from single word recognition to multiple words recognition. Moreover, we double the input image width to tackle the overlap problem of long texts after max-pooling and stack one more LSTM, enhancing the accuracy per character in the training set from 62% to 83%.
 
+Testing is done with SROIE dataset/
+
 ## Dependency
 
 1. [warp-ctc-pytorch](https://github.com/SeanNaren/warp-ctc/tree/pytorch_bindings/pytorch_binding)

@@ -53,7 +53,7 @@ cashier
 
 Training a CRNN requires converting data into `lmdb` format.
 
-1. Divide training data into training and validating dataset, put each portion into `./data_tain/` and `./data_valid`. An example could be found [here](https://drive.google.com/open?id=1JKLh7Jq1VXVNW1InKJv6xUrc21zCQNpE)
+1. Divide training data into training and validating dataset, put each portion into `./data_train/` and `./data_valid`. An example could be found [here](https://drive.google.com/open?id=1JKLh7Jq1VXVNW1InKJv6xUrc21zCQNpE)
 
 2. Run `create_dataset.py` to create lmdb dataset. The created dataset could be found inside `./dataset`
 

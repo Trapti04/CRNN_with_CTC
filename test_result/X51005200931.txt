@@ -1,56 +1,56 @@
 gst summary
-cash : 436.20
-total (rm) : 486.20
-78096380 17&
+cash : 43820
+total (rm) : 438.2*
+2809 6 3&0 16
 rounding (rm) : 0.01
-chamge (rm) : 0.00
-toal gst (rm) : 246g
+chaige (rm) : 0.00
+tomal gst (rm) : 246
 41150 2469
 total :
 tax code
-1790
+1760
 sr
-b amount gst
-no.59 jalan perwmas 95
+b. amgunt gst"
+no.59 jalan permas 9/5
 time:08:32:00
-qty rsp amoun
-1
+qty r5p amoun
+ttec
 @ 3 3300 9900
 000
 55.00 55.dc
-perniagaan zheng hui
-460
+ perniagaan zheng hu!
+246
 9428
 3496
 bandar baru permas jaya
-@ 4 1000 400
-tot qty: 4
-( 2 4300 8600
- gst no : 000800589824
-man32rorv
+@c 1 1000 400
+tot qty: 45
+6 2 400 860
+gst no : 000800589824
+0ha032bg5*.v
 (rm) (rma
-sr: 1.5 welding glove-green gs)
-sr escut 4 cuting disc /90m) 30pc
-sre24wisdarweidredhead tungstenrgd
+sr: 1.5"melding glowe-green gs)
+sr egcut p cuting dnsc (180x/&0pc
+srez4wstarweidreohead tungsten rod
 6783
-sr srsteel 12" street elbow
+sr: sasteel 12" streetelbow
 2954
 81750 johor bahru
-itam
-sr weloro prickling gel 1kg
- salesperson
-4800 3 38 140c
- sr ceramic cap
-
- dlscount (rm) :
+ item
+sr weldro pickiing gel kg
+ salesper son:
+#9 30 380 11400
+sr: ceramic cap
+64
+ discount (rm) :
 41150 2469
- receipt#: cs00082258
-(ecudadgst) sdo toatrn) : 4150
-tel:07-3867324 fax:07-38:3793
-a089
+ receipt# cs00082258
+excdaigst) sio totatirn) : 41150
+ tel:07-386 7524 fax:07-388393
+a0e
  date. 09/02/2018
 simplified tax invoice
-goods sold are not returwable
+goods sold are not returnble
  cashier: user
  thank you.
-gogant engoineering (m) sdn bhd
+gogant engineering (m) sdn bhd

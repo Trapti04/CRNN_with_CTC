@@ -1,13 +1,13 @@
 import torch
 from torch.autograd import Variable
 import utils
-# import dataset
+import dataset
 from PIL import Image
 import glob
 import os
 import csv
 import cv2
-# import models.crnn as crnn
+import models.crnn as crnn
 
 
 def predict_this_box(image, model, alphabet):
@@ -34,7 +34,7 @@ def predict_this_box(image, model, alphabet):
 
 def load_images_to_predict():
     # load model
-    model_path = './expr/netCRNN_190_423.pth'
+    model_path = './expr/netCRNN_199_423.pth'
     alphabet = '0123456789,.:(%$!^&-/);<~|`>?+=_[]{}"\'@#*ABCDEFGHIJKLMNOPQRSTUVWXYZ\ '
     imgH = 32 # should be 32
     nclass = len(alphabet) + 1
@@ -125,7 +125,7 @@ def draw():
 
 
 if __name__ == "__main__":
-    #load_images_to_predict()
-    #process_txt()
-    # for_task3()
-    draw()
+    load_images_to_predict()
+    process_txt()
+    for_task3()
+    #draw()

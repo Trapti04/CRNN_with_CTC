@@ -24,13 +24,13 @@ parser.add_argument('--nh', type=int, default=256, help='size of the lstm hidden
 parser.add_argument('--nepoch', type=int, default=25, help='number of epochs to train for')
 parser.add_argument('--cuda', action='store_true', help='enables cuda')
 parser.add_argument('--ngpu', type=int, default=1, help='number of GPUs to use')
-parser.add_argument('--pretrained', default='', help="path to pretrained model (to continue training)")
+parser.add_argument('--pretrained', default='', help="path to pretrained model (to continue training)") # expr/netCRNN_199_423.pth
 parser.add_argument('--alphabet', type=str, default='0123456789,.:(%$!^&-/);<~|`>?+=_[]{}"\'@#*ABCDEFGHIJKLMNOPQRSTUVWXYZ\ ')
 parser.add_argument('--expr_dir', default='expr', help='Where to store samples and models')
-parser.add_argument('--displayInterval', type=int, default=500, help='Interval to be displayed')
+parser.add_argument('--displayInterval', type=int, default=200, help='Interval to be displayed') #500
 parser.add_argument('--n_test_disp', type=int, default=10, help='Number of samples to display when test')
-parser.add_argument('--valInterval', type=int, default=500, help='Interval to be displayed')
-parser.add_argument('--saveInterval', type=int, default=500, help='Interval to be displayed')
+parser.add_argument('--valInterval', type=int, default=200, help='Interval to be displayed')#500
+parser.add_argument('--saveInterval', type=int, default=200, help='Interval to be displayed')#500
 parser.add_argument('--lr', type=float, default=0.01, help='learning rate for Critic, not used by adadealta')
 parser.add_argument('--beta1', type=float, default=0.5, help='beta1 for adam. default=0.5')
 parser.add_argument('--adam', action='store_true', help='Whether to use adam (default is rmsprop)')
@@ -54,6 +54,7 @@ if torch.cuda.is_available() and not opt.cuda:
     print("WARNING: You have a CUDA device, so you should probably run with --cuda")
 
 train_dataset = dataset.lmdbDataset(root=opt.trainroot)
+
 assert train_dataset
 if not opt.random_sample:
     sampler = dataset.randomSequentialSampler(train_dataset, opt.batchSize)
@@ -93,6 +94,7 @@ if opt.pretrained != '':
     crnn = torch.nn.DataParallel(crnn, device_ids=range(opt.ngpu))
     cudnn.benchmark = True
     crnn.load_state_dict(torch.load(opt.pretrained))
+    
 print(crnn)
 
 image = torch.FloatTensor(opt.batchSize, 3, opt.imgH, opt.imgH)
@@ -168,7 +170,7 @@ def val(net, dataset, criterion, max_iter=100):
         print('%-30s => %-30s, gt: %-30s' % (raw_pred, pred, gt))
 
     accuracy = n_correct / float(max_iter * opt.batchSize)
-    print('Test loss: %f, accuray: %f' % (loss_avg.val(), accuracy))
+    print('Test loss: %f, accuracy: %f' % (loss_avg.val(), accuracy))
 
 
 def trainBatch(net, criterion, optimizer):
@@ -192,6 +194,7 @@ def trainBatch(net, criterion, optimizer):
 for epoch in range(opt.nepoch):
     train_iter = iter(train_loader)
     i = 0
+    
     while i < len(train_loader):
         for p in crnn.parameters():
             p.requires_grad = True
@@ -200,6 +203,7 @@ for epoch in range(opt.nepoch):
         cost = trainBatch(crnn, criterion, optimizer)
         loss_avg.add(cost)
         i += 1
+        
 
         if i % opt.displayInterval == 0:
             print('[%d/%d][%d/%d] Loss: %f' %
@@ -213,3 +217,4 @@ for epoch in range(opt.nepoch):
         if i % opt.saveInterval == 0:
             torch.save(
                 crnn.state_dict(), '{0}/netCRNN_{1}_{2}.pth'.format(opt.expr_dir, epoch, i))
+    print(epoch , " epoch ended")

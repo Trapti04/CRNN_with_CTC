@@ -62,5 +62,6 @@ Training a CRNN requires converting data into `lmdb` format.
    python train.py --adadelta --trainRoot {train_path} --valRoot {val_path} --cuda
    ```
    with desired options
+   Note: runs with : python train.py --adadelta --trainroot dataset/train --valroot dataset/val --cuda
 
 4. Trained model output will be in `./expr/`

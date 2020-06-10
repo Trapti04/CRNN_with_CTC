@@ -19,6 +19,9 @@ def checkImageIsValid(imageBin):
 def writeCache(env, cache):
     with env.begin(write=True) as txn:
         for k, v in cache.items():
+            k= k.encode()
+            if type(v) == str:
+                v = v.encode()
             txn.put(k, v)
 
 

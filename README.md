@@ -16,6 +16,7 @@ Testing is done with SROIE dataset
 
 1. [warp-ctc-pytorch](https://github.com/SeanNaren/warp-ctc/tree/pytorch_bindings/pytorch_binding)
 2. lmdb
+3. Python 3.6+ and pyTorch
 
 ## Prediction
 

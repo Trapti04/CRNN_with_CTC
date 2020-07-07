@@ -4,17 +4,13 @@ This is a `pytorch` implementation of CRNN, which is based on @meijieru's reposi
 
 ## Introduction
 
-The CNN + RNN + CTC model visualisation:
-
-<div align=center><img src="../Media/CTC.png" width="600"/></div>
 
 We applied a modified CRNN in this task. CRNN is a conventional scene text recognition method including convolutional layers, bidirectional LSTM layers, and a transcription layer in sequence. 
 
-<div align=center><img src="../Media/CRNN.png" width="300"/></div>
 
 In scanned receipts each text usually contains several words. We add the blank space between words to the alphabet for LSTM prediction and thus improve the network from single word recognition to multiple words recognition. Moreover, we double the input image width to tackle the overlap problem of long texts after max-pooling and stack one more LSTM, enhancing the accuracy per character in the training set from 62% to 83%.
 
-Testing is done with SROIE dataset/
+Testing is done with SROIE dataset
 
 ## Dependency
 
@@ -23,9 +19,9 @@ Testing is done with SROIE dataset/
 
 ## Prediction
 
-As is shown in the introduction image, CRNN only accepts image that has single line of word. Therefore, we must provide bounding boxes for the whole reciept image.
+As is shown in the introduction image, CRNN only accepts image that has single line of word. Therefore, we must provide bounding boxes for the whole receipt image.
 
-1. Put image under folder `./data_test/` and bounding box text file under `./boundingbox/`, the name of image file and text file must correspond. The example test file can be found [here](https://drive.google.com/open?id=107WIMIzcD00EycMVy9VGvYiTGr_ySPOj)
+1. Put image under folder `./data_test/` and bounding box text file under `./boundingbox/`, the name of image file and text file must correspond.
 
 2. Download pre-trained model from [here](https://drive.google.com/open?id=1X3_pNnLNEdwEcgiFrtwvc4uYXzkZ9Zjw) and put the weight file under `./expr/` folder 
 
@@ -62,6 +58,6 @@ Training a CRNN requires converting data into `lmdb` format.
    python train.py --adadelta --trainRoot {train_path} --valRoot {val_path} --cuda
    ```
    with desired options
-   Note: runs with : python train.py --adadelta --trainroot dataset/train --valroot dataset/val --cuda
+   Trapti's Note: runs with : python train.py --adadelta --trainroot dataset/train --valroot dataset/val --cuda
 
 4. Trained model output will be in `./expr/`

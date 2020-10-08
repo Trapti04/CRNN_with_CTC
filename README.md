@@ -1,11 +1,11 @@
 # Scanned Receipt OCR by Convolutional-Recurrent Neural Network
 
-This is a `pytorch` implementation of CRNN, which is based on @meijieru's repository [here](https://github.com/meijieru/crnn.pytorch).
+This is a `pytorch` implementation of CRNN, which is based on @meijieru's repository [here](https://github.com/meijieru/crnn.pytorch). It was re-implmented and modified to work with the problem set given by Egregore.
 
 ## Introduction
 
 
-We applied a modified CRNN in this task. CRNN is a conventional scene text recognition method including convolutional layers, bidirectional LSTM layers, and a transcription layer in sequence. 
+We applied a modified CRNN in this task( task 2 for the Universal Text Extractor solution from scanned images). CRNN is a conventional scene text recognition method including convolutional layers, bidirectional LSTM layers, and a transcription layer in sequence. 
 
 
 In scanned receipts each text usually contains several words. We add the blank space between words to the alphabet for LSTM prediction and thus improve the network from single word recognition to multiple words recognition. Moreover, we double the input image width to tackle the overlap problem of long texts after max-pooling and stack one more LSTM, enhancing the accuracy per character in the training set from 62% to 83%.
